@@ -28,12 +28,12 @@ namespace WebAppsWithoutSecrets
             {
                 var builtConfig = config.Build();
                 var keyVaultUrl = $"https://{builtConfig["KeyVaultName"]}.vault.azure.net";
-
+                
                 //this comes with .net core 2.1
                 config.AddAzureKeyVault(keyVaultUrl);
-                
+
                 //if using 2.0, you should use this apporach
-                //AzureServiceTokenProvider - this is the magic piece that makes it seamless to work with MSI even on your local development machine
+                //AzureServiceTokenProvider - this is the magic piece that makes it seamless to work with MSI
                 //var azureServiceTokenProvider = new AzureServiceTokenProvider();
                 //var keyVaultClient = new KeyVaultClient(
                 //new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
